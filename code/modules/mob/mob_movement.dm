@@ -255,6 +255,9 @@
 	return FALSE
 
 
+/* /mob/proc/slip(knockdown, paralyze, forcedrop, w_amount, obj/O, lube)
+	return */ //Yogs - Revert of Kevinz slip code
+
 /mob/proc/slip(s_amount, w_amount, obj/O, lube)
 	return
 

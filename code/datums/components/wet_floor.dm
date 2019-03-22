@@ -92,7 +92,9 @@
 			qdel(parent.GetComponent(/datum/component/slippery))
 			return
 
-	var/datum/component/slippery/S = parent.LoadComponent(/datum/component/slippery, NONE, CALLBACK(src, .proc/AfterSlip))
+	/*parent.LoadComponent(/datum/component/slippery, intensity, lube_flags, CALLBACK(src, .proc/AfterSlip)) */ // Yogs - Old(new?) code pre-revert of Kevinz butchering of slipping.
+
+	var/datum/component/slippery/S = parent.LoadComponent(/datum/component/slippery, NONE, CALLBACK(src, .proc/AfterSlip)) //Yogs new(old?) code of similar reasoning as above but flipped?
 	S.intensity = intensity
 	S.lube_flags = lube_flags
 

@@ -10,6 +10,13 @@
 		if(legcuffed)
 			. += legcuffed.slowdown
 
+/* /mob/living/carbon/slip(knockdown_amount, obj/O, lube, paralyze, force_drop)
+	if(movement_type & FLYING)
+		return 0
+	if(!(lube&SLIDE_ICE))
+		log_combat(src, (O ? O : get_turf(src)), "slipped on the", null, ((lube & SLIDE) ? "(LUBE)" : null))
+	return loc.handle_slip(src, knockdown_amount, O, lube, paralyze, force_drop) */ // Yogs - Revert of more Kevinz slip code
+
 /mob/living/carbon/slip(knockdown_amount, obj/O, lube)
 	if(movement_type & FLYING)
 		return 0
@@ -41,3 +48,11 @@
 			adjust_nutrition(-(HUNGER_FACTOR/10))
 			if(m_intent == MOVE_INTENT_RUN)
 				adjust_nutrition(-(HUNGER_FACTOR/10))
+
+
+/mob/living/carbon/slip(knockdown_amount, obj/O, lube)
+	if(movement_type & FLYING)
+		return 0
+	if(!(lube&SLIDE_ICE))
+		log_combat(src, (O ? O : get_turf(src)), "slipped on the", null, ((lube & SLIDE) ? "(LUBE)" : null))
+	return loc.handle_slip(src, knockdown_amount, O, lube)
