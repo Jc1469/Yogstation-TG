@@ -325,6 +325,8 @@
 	if(AM && isturf(AM.loc))
 		step(AM, turn(AM.dir, 180))
 
+/* /atom/proc/handle_slip(mob/living/carbon/C, knockdown_amount, obj/O, lube, paralyze, force_drop) */ Yogs - Slip and slide code along with atoms, slippery, wet_floor, open(turfs) and human/carbon/living movement
+
 /atom/proc/handle_slip(mob/living/carbon/C, knockdown_amount, obj/O, lube)
 	return
 

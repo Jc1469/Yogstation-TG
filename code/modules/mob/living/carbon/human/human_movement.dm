@@ -12,6 +12,18 @@
 	if(dna && dna.species)
 		. += dna.species.movement_delay(src)
 
+/* /mob/living/carbon/human/slip(knockdown_amount, obj/O, lube, paralyze, forcedrop)
+	if(has_trait(TRAIT_NOSLIPALL))
+		return 0
+	if (!(lube&GALOSHES_DONT_HELP))
+		if(has_trait(TRAIT_NOSLIPWATER))
+			return 0
+		if(shoes && istype(shoes, /obj/item/clothing))
+			var/obj/item/clothing/CS = shoes
+			if (CS.clothing_flags & NOSLIP)
+				return 0
+	return ..() */ // Yogs - Revert of more Kevinz slip code.
+
 /mob/living/carbon/human/slip(knockdown_amount, obj/O, lube)
 	if(has_trait(TRAIT_NOSLIPALL))
 		return 0
@@ -76,3 +88,5 @@
 	if(dna.species.space_move(src))
 		return TRUE
 	return ..()
+
+	/mob/living/carbon/human/slip(knockdown_amount, obj/O, lube)
